@@ -10,6 +10,12 @@ def random_name():
     new_name = str(randint(1, 99))
     return 'img'+ new_name
 
+def save_img(url):
+    name = random_name()
+    img = Image.open(urlopen(url))
+    img.save(f'{path_img}\img{str(name)}.png')
+    img.close()
+
 
 print('\nTo add multiple images you just need to paste the URLs and press "enter"\n When you want to, just type "stop"')
 
@@ -17,15 +23,13 @@ while True:
     imgs = str(input('enter the image url: '))
 
     if imgs != 'stop':
+
         #check valid urls
         if 'https://' in imgs:
             urls.append(imgs)
         else:
-            print('url invalida')
+            print('invalid url')
     else:
         for url in urls:
-            pass
-            #save_img(url)
+            save_img(url)
         break
-
-    print(f'\nvoce tem {len(urls)} urls adicionadas para baixar')
