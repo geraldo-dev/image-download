@@ -4,7 +4,7 @@ from random import randint
 from time import sleep
 
 urls = []
-path_img = '.\image'
+path_img = '.\images'
 
 def random_name():
     new_name = str(randint(1, 99))
