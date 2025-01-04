@@ -1,18 +1,20 @@
 from PIL import Image
 from urllib.request import urlopen
+from random import randint
+from time import sleep
 
-url = "https://img.freepik.com/vetores-gratis/elefante-fofo-usando-oculos-de-desenho-animado-icone-vetorial-ilustracao-icone-de-natureza-animal-isolado_138676-13787.jpg?semt=ais_hybrid"
 urls = []
-format_img = '.png'
-name_img = 'teste'
-path_img = '.\image\\'
+path_img = '.\image'
 
-print('para adiciona varias imagens voce so precisa ir colando as urls e dando "enter"\nquando quize para apena digite "stop"')
+def random_name():
+    new_name = str(randint(1, 99))
+    return 'img'+ new_name
+
+
+print('\nTo add multiple images you just need to paste the URLs and press "enter"\n When you want to, just type "stop"')
 
 while True:
-    imgs = str(input('informe a url da image: '))
-
-    img =  Image.open(urlopen(url))
+    imgs = str(input('enter the image url: '))
 
     if imgs != 'stop':
         #check valid urls
@@ -21,8 +23,9 @@ while True:
         else:
             print('url invalida')
     else:
+        for url in urls:
+            pass
+            #save_img(url)
         break
 
-    print(urls)
-
-# img.save(f'{path_img}{name_img}{format_img}')
+    print(f'\nvoce tem {len(urls)} urls adicionadas para baixar')
